@@ -11,7 +11,7 @@ namespace ShopperWebApp.Controllers
     public class ListingController : Controller
     {
         // GET: Listing
-        public ActionResult Index()
+        public ActionResult Index(string category)
         {
             var electronicsCategory = new CategoryModel
             {
@@ -19,6 +19,15 @@ namespace ShopperWebApp.Controllers
                 Name = "Electronics",
                 Description = "Consoles, Tvs, Microwaves, Phones, etc."
             };
+
+            var foodCategory = new CategoryModel
+            {
+                Id = 1,
+                Name = "Foods",
+                Description = "Peanuts, poutines, pazzas, etc."
+            };
+
+            ViewBag.Categories = new List<string> {"Electronics", "Foods"};
 
             var xboxPictures = new List<PictureModel>
             {

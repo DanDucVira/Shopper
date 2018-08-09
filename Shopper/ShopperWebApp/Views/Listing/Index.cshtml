@@ -1,10 +1,16 @@
-﻿@model List<ItemModel>
+﻿@using System.Security.Cryptography.X509Certificates
+@model List<ItemModel>
 
 @{
     ViewData["Title"] = "Listings";
 }
 
 <h2>Listings</h2>
+
+<form asp-controller="Listing" method="get">
+    @Html.DropDownList("category", new SelectList(@ViewBag.Categories), "Select category")
+    <input type="submit" value="Filter"/>
+</form>
 
 @foreach (var item in @Model)
 {
