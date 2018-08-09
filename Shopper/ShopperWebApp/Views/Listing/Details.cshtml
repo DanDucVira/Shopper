@@ -1,0 +1,34 @@
+﻿@model ItemModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+@Html.LabelFor(x => x.Name)
+@Model.Name
+
+@Html.LabelFor(x => x.Description)
+@Model.Description
+
+@Html.LabelFor(x => x.Price)
+@Model.Price
+
+@Html.LabelFor(x => x.Category.Name)
+@Model.Category.Name
+
+@Html.LabelFor(x => x.Pictures)
+@foreach (var picture in @Model.Pictures)
+{
+    @picture.Description
+    <img src="@picture.Url" alt="Item picture" />
+}
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

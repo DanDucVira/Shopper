@@ -120,7 +120,45 @@ namespace ShopperWebApp.Controllers
         // GET: Listing/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var electronicsCategory = new CategoryModel
+            {
+                Id = 1,
+                Name = "Electronics",
+                Description = "Consoles, Tvs, Microwaves, Phones, etc."
+            };
+
+            var xboxPictures = new List<PictureModel>
+            {
+                new PictureModel
+                {
+                    Id = 1,
+                    Description = "Xbox",
+                    Url = "http://hight-tech-reviews.e-monsite.com/medias/images/wide-a467935d.jpg",
+                    IsHeader = true,
+                    Order = 1
+                },
+
+                new PictureModel
+                {
+                    Id = 2,
+                    Description = "Another Xbox",
+                    Url = "http://hight-tech-reviews.e-monsite.com/medias/images/xboxone-1600-2.jpg",
+                    IsHeader = false,
+                    Order = 2
+                }
+            };
+
+            var item = new ItemModel
+            {
+                Id = 5,
+                Name = "Xbox One 5",
+                Description = "This is a slightly used Xbox One in very good condition.",
+                Price = 599,
+                Category = electronicsCategory,
+                Pictures = xboxPictures
+            };
+
+            return View(item);
         }
 
         // GET: Listing/Create
@@ -132,7 +170,7 @@ namespace ShopperWebApp.Controllers
         // POST: Listing/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ItemModel item)
         {
             try
             {

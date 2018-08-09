@@ -1,11 +1,12 @@
-﻿@using System.Security.Cryptography.X509Certificates
-@model List<ItemModel>
+﻿@model List<ItemModel>
 
 @{
     ViewData["Title"] = "Listings";
 }
 
 <h2>Listings</h2>
+
+@Html.ActionLink("Create New Listing", "Create", "Listing", new { @class = "#" })
 
 <form asp-controller="Listing" method="get" class="form-group">
     @Html.DropDownList("category1", new SelectList(@ViewBag.Categories), "Select category", new { @class = "form-control" })
@@ -22,7 +23,8 @@
     <h2>@item.Description</h2>
     <h2>@item.Price</h2>
     <h2>@item.Category.Name</h2>
-    
+    @Html.ActionLink("Details", "Details", "Listing", new { id = @item.Id })
+
     @foreach (var picture in @item.Pictures)
     {
     <img src="@picture.Url" alt="Item Picture" width="100" height="100" />
