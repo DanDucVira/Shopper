@@ -1,5 +1,3 @@
-using System;
-
 namespace ShopperWebApp.Models
 {
     public class ErrorViewModel
