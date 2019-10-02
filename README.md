@@ -1,4 +1,4 @@
-# ShopperAPP
+# Shopper
 a simple web App called ShopperApp to sell products on the web.
 
 
